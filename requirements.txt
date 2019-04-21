@@ -13,3 +13,4 @@ scikit-learn
 pylint
 seaborn
 quilt
+black

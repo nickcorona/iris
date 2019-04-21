@@ -1,25 +1,23 @@
 # -*- coding: utf-8 -*-
-import click
 import logging
-from pathlib import Path
-from dotenv import find_dotenv, load_dotenv
 import os
+import pickle
+from pathlib import Path
 
+from dotenv import find_dotenv, load_dotenv
+from quilt.data.uciml import iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelBinarizer
-from quilt.data.uciml import iris
-import pickle
 
 
-@click.command()
-# @click.argument("input_filepath", type=click.Path(exists=True))
-@click.argument("output_filepath", type=click.Path())
 def main(output_filepath):
     """ Runs data processing scripts to turn raw data from (../raw) into
         cleaned data ready to be analyzed (saved in ../processed).
     """
     logger = logging.getLogger(__name__)
     logger.info("making final data set from raw data")
+
+    os
 
     df = iris.tables.iris()
     X = df.iloc[:, 0:4].values
@@ -53,4 +51,4 @@ if __name__ == "__main__":
     # load up the .env entries as environment variables
     load_dotenv(find_dotenv())
 
-    main()
+    main("/data/processed/")
