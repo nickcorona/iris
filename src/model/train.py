@@ -1,7 +1,15 @@
-from sklearn.linear_model import LinearRegression
-import pandas as pd
+from sklearn import datasets, svm
 
-df = pd.read_pickle('data/raw/iris.pickle')
+iris = datasets.load_iris()
+iris.target_names
 
+X = iris.data
+y = iris.target
 
-X = pd.read_pickle('data/processed/X_train.pickle')  #
+X.shape
+y.shape  # 150 samples, 4 features
+
+clf = svm.SVC(gamma=0.001, C=100)
+clf.fit(X, y)
+clf.predict(X[-1:])
+
